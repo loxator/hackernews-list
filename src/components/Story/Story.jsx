@@ -56,12 +56,14 @@ const Story = ({ id }) => {
                 {story && story.title && story.title[0]}
               </Avatar>
             }
-            title={story.title}
+            title={
+              <Typography className={classes.title} gutterBottom>
+                {story.title}
+              </Typography>
+            }
             subheader={new Date(story.time * 1000).toDateString()}
           />
-          <Typography className={classes.title} gutterBottom>
-            {story.title}
-          </Typography>
+          <Typography gutterBottom>{story.title}</Typography>
 
           <Typography variant="body2" component="p" color="textSecondary">
             by - {story.by}
