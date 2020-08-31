@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const Story = ({ id }) => {
   useEffect(() => {
     getStory(id).then((story) => setStory(story));
-  });
+  }, []);
   const classes = useStyles();
   const [story, setStory] = useState({});
 

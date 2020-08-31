@@ -6,7 +6,7 @@ const StoryContainer = () => {
   const [storyIDs, setStoryIDs] = useState([]);
   useEffect(() => {
     getStoryIDs().then((data) => setStoryIDs(data.slice(0, 6)));
-  });
+  }, []);
   return (
     <Grid container spacing={4}>
       {storyIDs.map((id) => (
