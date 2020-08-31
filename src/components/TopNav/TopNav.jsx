@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    background: "teal",
+    background: "linear-gradient(90deg, #041F5D 36.98%, #006BA8 100%)",
   },
   linkContainer: { flexGrow: 1, margin: "auto" },
   logoContainer: { flexGrow: 1, flexBasis: "75%" },
@@ -36,7 +36,7 @@ const TopNav = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.wrapper} position="static">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           Hacker News!
