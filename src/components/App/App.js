@@ -14,8 +14,8 @@ const App = () => {
       <Grid container direction="column">
         <TopNav />
         <Grid item container>
-          <Grid item xs={false} sm={2} />
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={2} />
+          <Grid item xs={8}>
             <Switch>
               <Redirect exact from="/" to="/top" />
               <Route exact path={["/top", "/best", "/new"]}>
@@ -23,7 +23,7 @@ const App = () => {
               </Route>
             </Switch>
           </Grid>
-          <Grid item xs={false} sm={2} />
+          <Grid item xs={2} />
         </Grid>
       </Grid>
     </Router>
