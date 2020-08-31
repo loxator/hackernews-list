@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { getStory } from "../../requests/hackerNewsAPI";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const Story = ({ id }) => {
   useEffect(() => {
     getStory(id).then((story) => setStory(story));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const classes = useStyles();
   const [story, setStory] = useState({});

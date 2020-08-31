@@ -1,10 +1,10 @@
 import request from "../services/ApiService";
 
-export const getStoryIDs = async () => {
+export const getStoryIDs = async (urlSuffix) => {
   try {
     const response = await request({
       method: "GET",
-      url: "topstories.json?print=pretty",
+      url: `${urlSuffix}.json?print=pretty`,
     });
 
     if (!response.error) {
