@@ -2,8 +2,8 @@ import axios from "axios";
 import querystring from "querystring";
 
 export const client = axios.create({
-  baseURL: process.env.API_BASE,
-  timeout: 15000,
+  baseURL: process.env.REACT_API_BASE,
+  timeout: 5000,
   headers: {
     "Content-Type": "application/json",
   },
