@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from "react";
+import React, { useEffect, useState } from "react";
 import { getStoryIDs } from "../../requests/hackerNewsAPI";
 import Story from "../../components/Story/Story";
 import Grid from "@material-ui/core/Grid";
