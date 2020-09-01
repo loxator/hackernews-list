@@ -9,7 +9,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { getStory } from "../../requests/hackerNewsAPI";
 import LoadingOverlay from "react-loading-overlay";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     background: "#fafafa",
     boxShadow:
@@ -31,33 +31,51 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: "red",
   },
-}));
+});
 
 const Story = ({ id }) => {
   useEffect(() => {
-    setLoading(true);
-    getStory(id).then((story) => setStory(story));
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    getStoryData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const classes = useStyles();
   const [story, setStory] = useState({});
   const [loading, setLoading] = useState(false);
 
+  const getStoryData = async () => {
+    setLoading(true);
+    const data = await getStory(id);
+    setStory(data);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
   return (
-    <LoadingOverlay active={loading} spinner text="Loading story">
-      <Card className={classes.root}>
+    <LoadingOverlay
+      active={loading}
+      spinner
+      text="Loading story"
+      data-testid="story__loading__overlay"
+    >
+      <Card className={classes.root} data-testid="story__card">
         <CardContent>
           <CardHeader
             avatar={
-              <Avatar aria-label="stories" className={classes.avatar}>
+              <Avatar
+                aria-label="stories"
+                className={classes.avatar}
+                data-testid="story__card__avatar__letter"
+              >
                 {story && story.title && story.title[0]}
               </Avatar>
             }
             title={
-              <Typography className={classes.title} gutterBottom>
+              <Typography
+                className={classes.title}
+                gutterBottom
+                data-testid="story__card__title"
+              >
                 {story && story.title}
               </Typography>
             }
@@ -65,7 +83,12 @@ const Story = ({ id }) => {
           />
           <Typography gutterBottom>{story.title}</Typography>
 
-          <Typography variant="body2" component="p" color="textSecondary">
+          <Typography
+            variant="body2"
+            component="p"
+            color="textSecondary"
+            data-testid="story__card__author"
+          >
             by - {story && story.by}
           </Typography>
         </CardContent>
@@ -76,6 +99,7 @@ const Story = ({ id }) => {
               href={story && story.url}
               target="_blank"
               rel="noopener noreferrer"
+              data-testid="story__card__link"
             >
               Check it out!
             </a>
