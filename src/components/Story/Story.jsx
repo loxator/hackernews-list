@@ -58,7 +58,7 @@ const Story = ({ id }) => {
             }
             title={
               <Typography className={classes.title} gutterBottom>
-                {story.title}
+                {story && story.title}
               </Typography>
             }
             subheader={new Date(story.time * 1000).toDateString()}
@@ -66,14 +66,14 @@ const Story = ({ id }) => {
           <Typography gutterBottom>{story.title}</Typography>
 
           <Typography variant="body2" component="p" color="textSecondary">
-            by - {story.by}
+            by - {story && story.by}
           </Typography>
         </CardContent>
         <CardActions>
           <Typography>
             <a
               style={{ display: "table-cell" }}
-              href={story.url}
+              href={story && story.url}
               target="_blank"
               rel="noopener noreferrer"
             >
