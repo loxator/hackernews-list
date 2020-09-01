@@ -8,6 +8,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { getStory } from "../../requests/hackerNewsAPI";
 import LoadingOverlay from "react-loading-overlay";
+import Notification from "../Notification/Notifcation";
 
 const useStyles = makeStyles({
   root: {
@@ -41,16 +42,31 @@ const Story = ({ id }) => {
   const classes = useStyles();
   const [story, setStory] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const getStoryData = async () => {
     setLoading(true);
     const data = await getStory(id);
+    if (data.error) {
+      setError(true);
+      return;
+    }
     setStory(data);
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   };
 
+  //Show Snackbar in case of error
+  if (error) {
+    return (
+      <Notification
+        message={`Could not load story with ID ${id}`}
+        severity="error"
+        data-testid="story__error"
+      />
+    );
+  }
   return (
     <LoadingOverlay
       active={loading}
