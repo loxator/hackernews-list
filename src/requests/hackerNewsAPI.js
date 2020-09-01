@@ -11,7 +11,7 @@ export const getStoryIDs = async (urlSuffix) => {
       return response;
     } else throw response;
   } catch (error) {
-    console.log("getStoryIDs -> error", error);
+    return { error: true };
   }
 };
 
@@ -26,6 +26,6 @@ export const getStory = async (storyId) => {
       return response;
     } else throw response;
   } catch (error) {
-    console.log("getStoryIDs -> error", error);
+    return { error: true };
   }
 };
