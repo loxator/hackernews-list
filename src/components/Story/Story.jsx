@@ -71,7 +71,7 @@ const Story = ({ id }) => {
     <LoadingOverlay
       active={loading}
       spinner
-      text="Loading story"
+      text={<Typography>Loading story</Typography>}
       data-testid="story__loading__overlay"
     >
       <Card className={classes.root} data-testid="story__card">
