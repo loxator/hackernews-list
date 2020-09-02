@@ -24,4 +24,5 @@ Running `yarn test` will start the unit tests which picks up any files ending wi
 - Scenes - A scene represents a screen in the app made from predefined or new components bundled together
 - services - Folder which houses an APIService to make asynchronous calls, could also house DataBaseService in the future
 - static - Contains the global theme object
+- requests - server calls which hit the API and retrieve data
 ---
