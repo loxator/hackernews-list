@@ -1,4 +1,4 @@
-# Nas Daily FE Test - HackerNews Clone
+# HackerNews Clone
 
 This project is a clone of the HackerNews frontpage which provides a list of Top/Best/New stories:
 
